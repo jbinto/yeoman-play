@@ -16,6 +16,29 @@ app.directive('evil', function() {
   };
 });
 
+app.directive('enter', function() {
+  return {
+    restrict: 'A', // note: A=default; this line redundant
+    link: function(scope, element) {
+      // "bind" as in JQuery bind, according to the video (?)
+      element.bind('mouseenter', function() {
+        console.log('Swimming with the sharks!');
+      });
+    }
+  };
+});
+
+app.directive('leave', function() {
+  // Attribute based directives that call a function are common
+  // Use syntactic sugar, don't need the config object. 
+  // Equivalent to 'enter' above.
+  return function(scope, element) {
+    element.bind('mouseleave', function() {
+      console.log('My heart bleeds for them');
+    });
+  };
+});
+
 app.factory('BusRoutes', function() {
   var TTC = {};
   TTC.routes = [
