@@ -22,8 +22,14 @@ app.directive('enter', function() {
     link: function(scope, element, attrs) {
       // "bind" as in JQuery bind, according to the video (?)
       element.bind('mouseenter', function() {
-        console.log('Swimming with the sharks!');
         element.addClass(attrs.enter);
+
+        // WARNING: HERE BE DRAGONS
+        // This is like the "on error resume next" of AngularJS
+        // I don't know what it does yet. Proceed with caution.
+
+        // It *seems* to be a glorified eval.
+        scope.$apply(attrs.enterAction); // e.g. showDanger();
       });
     }
   };
@@ -35,7 +41,6 @@ app.directive('leave', function() {
   // Equivalent to 'enter' above.
   return function(scope, element, attrs) {
     element.bind('mouseleave', function() {
-      console.log('My heart bleeds for them');
       element.removeClass(attrs.enter);
     });
   };
@@ -62,6 +67,10 @@ app.factory('BusRoutes', function() {
 
 app.controller('BusRoutesCtrl', function($scope, BusRoutes) {
   $scope.busroutes = BusRoutes;
+
+  $scope.showDanger = function() {
+    console.log('Swimming with the sharks!');
+  };
 });
 
 
