@@ -15,7 +15,7 @@
 
   <div ng-controller="BusRoutesCtrl">
     <table class="table table-condensed table-striped">
-      <tr ng-repeat="route in busroutes.routes | filter:query ">
+      <tr ng-repeat="route in busroutes.routes | filter:query | orderBy: 'name' ">
         <td>{{route.number}}</td>
         <td>{{route.name}}</td>
       </tr>
