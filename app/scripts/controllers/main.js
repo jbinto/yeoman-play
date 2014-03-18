@@ -9,30 +9,29 @@
 
 var app = angular.module('projectfooApp');
 
-app.factory('Data', function() {
-  return { cssclass: 'alert alert-success' };
+app.factory('BusRoutes', function() {
+  var TTC = {};
+  TTC.routes = [
+    { number: 1, name: 'Yonge-University-Spadina' },
+    { number: 7, name: 'Bathurst' },
+    { number: 14, name: 'Glencairn' },
+    { number: 28, name: 'Davisville' },
+    { number: 32, name: 'Eglinton West' },
+    { number: 34, name: 'Eglinton East' },
+    { number: 310, name: 'Vomit Comet' },
+    { number: 501, name: 'Queen' },
+    { number: 503, name: 'Downtowner' },
+    { number: 504, name: 'King' },
+    { number: 505, name: 'Dundas' },
+    { number: 510, name: 'St. Clair' }
+  ];
+  return TTC;
 });
 
-app.filter('reverse', function() {
-  return function(data) {
-    return data.split(' ').reverse().join(' ');
-  };
+app.controller('BusRoutesCtrl', function($scope, BusRoutes) {
+  $scope.busroutes = BusRoutes;
+  debugger;
 });
-
-app.controller('FirstCtrl', function ($scope, Data) {
-    $scope.data = Data;
-  }
-);
-
-app.controller('SecondCtrl', function ($scope, Data) {
-    $scope.data = Data;
-
-    $scope.reversedMessage = function(message) {
-      return message.split(' ').reverse().join(' ');
-    };
-  }
-);
-
 
 
 app.controller('MainCtrl', function ($scope) {
