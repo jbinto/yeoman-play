@@ -20,18 +20,3 @@ describe('Controller: MainCtrl', function () {
     expect(scope.awesomeThings.length).toBe(3);
   });
 });
-
-// From egghead.io #007 - Testing Overview
-// The code above seems way more complex; not sure why.
-
-// Actually, now it makes sense. I'm testing a simple filter.
-// The above code is testing that a controller will attach something to the scope.
-// So, it necessarily has to get some sort of "scope-like" object to test with.
-describe('filter', function() {
-    beforeEach(module('projectfooApp'));
-
-    it('should reverse a string', inject(function(reverseFilter) {
-      expect(reverseFilter('one two three')).toEqual('three two one');
-    }));
-  }
-);
