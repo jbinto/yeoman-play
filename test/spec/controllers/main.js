@@ -20,3 +20,14 @@ describe('Controller: MainCtrl', function () {
     expect(scope.awesomeThings.length).toBe(3);
   });
 });
+
+// From egghead.io #007 - Testing Overview
+// The code above seems way more complex; not sure why.
+describe('filter', function() {
+    beforeEach(module('projectfooApp'));
+
+    it('should reverse a string', inject(function(reverseFilter) {
+      expect(reverseFilter('one two three')).toEqual('three two one');
+    }));
+  }
+);
