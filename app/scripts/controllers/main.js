@@ -46,6 +46,59 @@ app.directive('leave', function() {
   };
 });
 
+// NOTE MAGIC: hockeyPlayer is usable as <hockey-player> in markup
+// See attribute normalizing: http://docs.angularjs.org/guide/directive
+app.directive('hockeyPlayer', function() {
+  return {
+    restrict: 'E',
+    controller: function($scope) {
+      $scope.talents = [];
+      this.addScoring = function() { $scope.talents.push('scoring'); };
+      this.addPassing = function() { $scope.talents.push('passing'); };
+      this.addDefense = function() { $scope.talents.push('defense'); };
+    },
+
+    link: function(scope, element) {
+
+      // bootstrap, why so verbose...
+      element.addClass('btn');
+      element.addClass('btn-default');
+      element.addClass('btn-primary');
+
+      element.bind('mouseenter', function() {
+        console.log(scope.talents);
+      });
+    }
+  };
+});
+
+app.directive('scoring', function() {
+  return {
+    require: 'hockeyPlayer',
+    link: function(scope, element, attrs, hockeyPlayerCtrl) {
+      hockeyPlayerCtrl.addScoring();
+    }
+  };
+});
+
+app.directive('defense', function() {
+  return {
+    require: 'hockeyPlayer',
+    link: function(scope, element, attrs, hockeyPlayerCtrl) {
+      hockeyPlayerCtrl.addDefense();
+    }
+  };
+});
+
+app.directive('passing', function() {
+  return {
+    require: 'hockeyPlayer',
+    link: function(scope, element, attrs, hockeyPlayerCtrl) {
+      hockeyPlayerCtrl.addPassing();
+    }
+  };
+});
+
 app.factory('BusRoutes', function() {
   var TTC = {};
   TTC.routes = [
@@ -82,3 +135,5 @@ app.controller('MainCtrl', function ($scope) {
     ];
   }
 );
+
+

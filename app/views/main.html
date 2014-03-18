@@ -18,13 +18,17 @@
       <tr ng-repeat="route in busroutes.routes | filter:query | orderBy: 'name' ">
         <td>{{route.number}}</td>
         <td>{{route.name}}</td>
-      </tr> 
+      </tr>
     </table>
 
     <div class="text-muted">
       <div evil enter="alert-danger" enter_action="showDanger()" leave></div>
     </div>
-  </div>  
+
+    <hockey-player scoring>Phil Kessel</hockey-player>
+    <hockey-player scoring passing>Mats Sundin</hockey-player>
+    <hockey-player defense passing>Bobby Orr</hockey-player>
+  </div>
 
 
 
