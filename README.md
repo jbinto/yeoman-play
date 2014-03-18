@@ -3,6 +3,7 @@
 Just playing with [Yeoman](http://yeoman.io/), specifically:
 
 * testing pushing to Github Pages using [grunt-build-control](https://github.com/robwierzbowski/grunt-build-control).
+* playing with AngularJS via the [egghead.io](https://egghead.io/) screencasts.
 
 ## Installation
 
