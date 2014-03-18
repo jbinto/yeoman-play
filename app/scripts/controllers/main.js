@@ -24,7 +24,10 @@ angular.module('projectfooApp')
     ];
   })
   .controller('FirstCtrl', function ($scope) {
-    $scope.data = { cssclass: 'alert alert-success' };
-  }
-);
+
+  })
+  .controller('SecondCtrl', function ($scope) {
+
+  })
+;
 

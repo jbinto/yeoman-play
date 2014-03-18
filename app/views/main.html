@@ -7,12 +7,25 @@
   <h3 class="text-muted">Project Crocus</h3>
 </div>
 
-<div class="jumbotron" ng-controller="FirstCtrl">
+<div class="jumbotron">
   <h1 class="lead">Bootstrap class discovery.</h1>
   <p>Type in a class, and it'll appear below.</p>
+
+  <!-- Scope: ng-app? -->
   <input type="text" ng-model="data.cssclass">
-  
   <div class="{{data.cssclass}}">{{data.cssclass}}</div>
+
+  <div ng-controller="FirstCtrl">
+    <!-- Scope: still ng-app, since "data" was declared above -->
+    <input type="text" ng-model="data.cssclass">
+    <div class="{{data.cssclass}}">{{data.cssclass}}</div>
+  </div>
+
+  <div ng-controller="SecondCtrl">
+    <!-- Scope: still ng-app. The three fields are bound together. -->
+    <input type="text" ng-model="data.cssclass">
+    <div class="{{data.cssclass}}">{{data.cssclass}}</div>
+  </div>  
 
   <a href="http://anvoz.github.io/bootstrap-tldr/" target="_blank">Stumped? Try Bootstrap TLDR</a>
 </div>
