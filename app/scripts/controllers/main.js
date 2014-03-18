@@ -51,6 +51,7 @@ app.directive('leave', function() {
 app.directive('hockeyPlayer', function() {
   return {
     restrict: 'E',
+    scope: {},
     controller: function($scope) {
       $scope.talents = [];
       this.addScoring = function() { $scope.talents.push('scoring'); };
