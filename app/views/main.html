@@ -20,7 +20,7 @@
   <div ng-controller="SecondCtrl">
     <!-- Scope: still ng-app. The three fields are bound together. -->
     <input type="text" ng-model="data.cssclass">
-    <div class="{{data.cssclass}}">{{ reversedMessage(data.cssclass) }}</div>
+    <div class="{{data.cssclass}}">{{ data.cssclass | reverse }}</div>
   </div>  
 
   <a href="http://anvoz.github.io/bootstrap-tldr/" target="_blank">Stumped? Try Bootstrap TLDR</a>

@@ -13,6 +13,12 @@ app.factory('Data', function() {
   return { cssclass: 'alert alert-success' };
 });
 
+app.filter('reverse', function() {
+  return function(data) {
+    return data.split(' ').reverse().join(' ');
+  };
+});
+
 app.controller('FirstCtrl', function ($scope, Data) {
     $scope.data = Data;
   }
@@ -22,8 +28,8 @@ app.controller('SecondCtrl', function ($scope, Data) {
     $scope.data = Data;
 
     $scope.reversedMessage = function(message) {
-      return message.split(" ").reverse().join(" ")
-    }
+      return message.split(' ').reverse().join(' ');
+    };
   }
 );
 
