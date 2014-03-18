@@ -11,10 +11,6 @@
   <h1 class="lead">Bootstrap class discovery.</h1>
   <p>Type in a class, and it'll appear below.</p>
 
-  <!-- Scope: ng-app? -->
-  <input type="text" ng-model="data.cssclass">
-  <div class="{{data.cssclass}}">{{data.cssclass}}</div>
-
   <div ng-controller="FirstCtrl">
     <!-- Scope: still ng-app, since "data" was declared above -->
     <input type="text" ng-model="data.cssclass">
