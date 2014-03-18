@@ -1,5 +1,3 @@
-/* make JSHint happy (even though we're breaking "Good JS" rules, we'll get there) */
-/* exported FirstCtrl */
 'use strict';
 
 // Not quite sure about this invocation.
@@ -24,10 +22,8 @@ angular.module('projectfooApp')
     ];
   })
   .controller('FirstCtrl', function ($scope) {
-
+    $scope.jshint = 'happy';
   })
   .controller('SecondCtrl', function ($scope) {
-
-  })
-;
-
+    $scope.jshint = 'happy';
+  });
