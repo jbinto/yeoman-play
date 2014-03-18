@@ -9,6 +9,13 @@
 
 var app = angular.module('projectfooApp');
 
+app.directive("villain", function() {
+  return {
+    restrict: "E",
+    template: "<div>At the end of the day, it's their own fault. -Rob Ford</div>"
+  };
+});
+
 app.factory('BusRoutes', function() {
   var TTC = {};
   TTC.routes = [
