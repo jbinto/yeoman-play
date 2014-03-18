@@ -9,9 +9,9 @@
 
 var app = angular.module('projectfooApp');
 
-app.directive('villain', function() {
+app.directive('evil', function() {
   return {
-    restrict: 'E',
+    restrict: 'A',  // A=attribute, E=element (tag)
     template: '<div>At the end of the day, it\'s their own fault. -Rob Ford</div>'
   };
 });
